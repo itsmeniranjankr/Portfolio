@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niranjan K | Portfolio</title>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0f172a;
-            --secondary: #22d3ee;
-            --tertiary: #0ea5e9;
+            --primary: #0f172a; /* Deep blue-black */
+            
+            /* --- NEW THEME: Violet Dream --- */
+            --secondary: #ec4899; /* Hot Pink */
+            --tertiary: #8b5cf6; /* Vibrant Purple */
+            --accent: #ec4899;   /* Hot Pink */
+            --gradient: linear-gradient(90deg, var(--tertiary), var(--secondary));
+            /* --- End New Theme --- */
+
             --text: #f8fafc;
             --text-light: #94a3b8;
             --bg-card: #1e293b;
-            --accent: #22d3ee;
-            --gradient: linear-gradient(90deg, var(--tertiary), var(--secondary));
+            
             --purple: #8b5cf6;
             --pink: #ec4899;
             --orange: #f97316;
@@ -49,7 +55,7 @@
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--tertiary);
+            background: var(--tertiary); /* Updated to new theme */
         }
         
         /* Loading screen with enhanced animations */
@@ -74,7 +80,7 @@
         .loader-logo {
             font-size: 4rem;
             font-weight: bold;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 2rem;
@@ -97,7 +103,7 @@
             left: 0;
             height: 100%;
             width: 0;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             border-radius: 3px;
             transition: width 0.3s ease;
         }
@@ -126,7 +132,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
@@ -143,7 +149,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -178,12 +184,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             transition: width 0.3s ease;
         }
         
         nav a:hover {
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             transform: translateY(-2px);
         }
         
@@ -227,6 +233,7 @@
             position: relative;
             z-index: 2;
             animation: slideInRight 1s ease-out 0.3s both;
+            perspective: 1000px; /* Added for 3D hover */
         }
         
         .hero-image img {
@@ -234,13 +241,15 @@
             max-width: 400px;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Updated transition */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             animation: float 6s ease-in-out infinite;
         }
         
         .hero-image img:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 40px 80px rgba(34, 211, 238, 0.3);
+            /* Updated hover effect */
+            transform: scale(1.05) rotateY(10deg) rotateX(2deg);
+            box-shadow: 0 40px 80px rgba(236, 72, 153, 0.3); /* Uses new theme color */
         }
         
         .hero-image::before {
@@ -249,7 +258,7 @@
             width: 100%;
             height: 100%;
             border-radius: 20px;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             top: 20px;
             left: 20px;
             z-index: -1;
@@ -257,7 +266,7 @@
         }
         
         .subtitle {
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             font-size: 1.2rem;
             margin-bottom: 1rem;
             font-weight: 500;
@@ -268,7 +277,7 @@
             font-size: 5rem;
             margin-bottom: 1rem;
             line-height: 1.1;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out 0.7s both;
@@ -293,7 +302,7 @@
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             color: var(--primary);
             border: none;
             border-radius: 50px;
@@ -302,7 +311,7 @@
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3); /* Updated to new theme */
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -316,7 +325,8 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, var(--purple), var(--pink));
+            /* Kept orange/pink for hover, creates a nice contrast */
+            background: linear-gradient(90deg, var(--orange), var(--pink)); 
             transition: width 0.3s ease;
             z-index: -1;
         }
@@ -327,7 +337,7 @@
         
         .btn:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.5); /* Updated to new theme */
         }
         
         /* Floating elements */
@@ -359,7 +369,7 @@
         }
         
         .social-links-floating a:hover {
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             transform: translateY(-5px) scale(1.2);
         }
         
@@ -384,7 +394,7 @@
         }
         
         .email-link a:hover {
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             transform: translateY(-5px);
         }
         
@@ -427,10 +437,10 @@
         }
         
         .section-title .number {
-            color: var(--secondary);
+            color: var(--tertiary); /* Updated to new theme */
             font-size: 1.5rem;
             opacity: 0.8;
-            animation: bounce 2s infinite;
+            /* animation: bounce 2s infinite; -- Removed for a cleaner look */
         }
         
         .section-title::after {
@@ -507,7 +517,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -520,7 +530,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%); /* Updated to new theme */
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -535,8 +545,8 @@
         
         .skill-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(34, 211, 238, 0.2);
-            background: linear-gradient(135deg, var(--bg-card), rgba(34, 211, 238, 0.05));
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2); /* Updated to new theme */
+            background: linear-gradient(135deg, var(--bg-card), rgba(236, 72, 153, 0.05)); /* Updated to new theme */
         }
         
         .skill-name {
@@ -549,7 +559,7 @@
         }
         
         .skill-name i {
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             transition: transform 0.3s ease;
         }
         
@@ -571,11 +581,11 @@
             top: 0;
             left: 0;
             height: 100%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             border-radius: 10px;
             width: 0;
             transition: width 2s ease-out;
-            box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5); /* Updated to new theme */
         }
         
         /* Enhanced Education section */
@@ -592,7 +602,7 @@
             left: 20px;
             width: 3px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--secondary), var(--tertiary));
+            background: linear-gradient(to bottom, var(--secondary), var(--tertiary)); /* Updated to new theme */
             border-radius: 2px;
             animation: drawTimeline 2s ease-out;
         }
@@ -617,9 +627,9 @@
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); /* Updated to new theme */
             animation: pulse 2s infinite;
         }
         
@@ -635,15 +645,15 @@
         
         .timeline-content:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(34, 211, 238, 0.2);
-            border-color: var(--secondary);
+            box-shadow: 0 25px 50px rgba(236, 72, 153, 0.2); /* Updated to new theme */
+            border-color: var(--secondary); /* Updated to new theme */
         }
         
         .timeline-content h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
             color: var(--text);
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -657,12 +667,12 @@
             position: absolute;
             top: 2rem;
             right: 2rem;
-            background: rgba(34, 211, 238, 0.1);
+            background: rgba(236, 72, 153, 0.1); /* Updated to new theme */
             padding: 0.5rem 1rem;
             border-radius: 25px;
             font-size: 0.8rem;
-            color: var(--accent);
-            border: 1px solid rgba(34, 211, 238, 0.3);
+            color: var(--accent); /* Updated to new theme */
+            border: 1px solid rgba(236, 72, 153, 0.3); /* Updated to new theme */
             animation: glow 2s infinite alternate;
         }
         
@@ -689,6 +699,9 @@
         .certificate-card:nth-child(1) { animation-delay: 0.1s; }
         .certificate-card:nth-child(2) { animation-delay: 0.3s; }
         .certificate-card:nth-child(3) { animation-delay: 0.5s; }
+        /* Added delay for new card */
+        .certificate-card:nth-child(4) { animation-delay: 0.7s; }
+
         
         .certificate-card::before {
             content: '';
@@ -697,7 +710,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); /* Updated to new theme */
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -708,20 +721,20 @@
         
         .certificate-card:hover {
             transform: translateY(-15px) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(34, 211, 238, 0.3);
-            border-color: var(--secondary);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3); /* Updated to new theme */
+            border-color: var(--secondary); /* Updated to new theme */
         }
         
         .certificate-header {
             padding: 2rem;
-            background: linear-gradient(45deg, rgba(14, 165, 233, 0.1), rgba(34, 211, 238, 0.1));
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); /* Updated to new theme */
             position: relative;
             overflow: hidden;
         }
         
         .certificate-icon {
             font-size: 3.5rem;
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             margin-bottom: 1rem;
             transition: transform 0.4s ease;
         }
@@ -733,7 +746,7 @@
         .certificate-header h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -758,7 +771,7 @@
         
         .certificate-issuer {
             font-size: 0.9rem;
-            color: var(--secondary);
+            color: var(--secondary); /* Updated to new theme */
             font-weight: 600;
         }
         
@@ -787,7 +800,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%); /* Updated to new theme */
             animation: rotate 20s linear infinite;
         }
         
@@ -819,8 +832,8 @@
         
         .form-control:focus {
             outline: none;
-            border-color: var(--tertiary);
-            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+            border-color: var(--tertiary); /* Updated to new theme */
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2); /* Updated to new theme */
             transform: translateY(-2px);
         }
         
@@ -839,7 +852,7 @@
         .contact-info h3 {
             font-size: 2rem;
             margin-bottom: 2rem;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 1s ease-out;
@@ -875,7 +888,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -931,7 +944,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             transform: scale(0);
             transition: transform 0.4s ease;
             border-radius: 50%;
@@ -944,8 +957,8 @@
         .social-btn:hover {
             color: var(--primary);
             transform: translateY(-10px) scale(1.1);
-            border-color: var(--secondary);
-            box-shadow: 0 15px 30px rgba(34, 211, 238, 0.4);
+            border-color: var(--secondary); /* Updated to new theme */
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4); /* Updated to new theme */
         }
         
         /* Status message styles */
@@ -978,7 +991,7 @@
         
         /* Enhanced Footer */
         footer {
-            background: linear-gradient(135deg, var(--bg-card), rgba(34, 211, 238, 0.05));
+            background: linear-gradient(135deg, var(--bg-card), rgba(139, 92, 246, 0.05)); /* Updated to new theme */
             padding: 3rem 2rem 2rem;
             text-align: center;
             color: var(--text-light);
@@ -999,7 +1012,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1007,30 +1020,30 @@
             font-size: 1.4rem;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4); /* Updated to new theme */
             animation: bounce 2s infinite;
         }
         
         .back-to-top:hover {
             transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.6); /* Updated to new theme */
             animation: none;
         }
         
         /* Enhanced decorative elements */
         .text-gradient {
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
         .bg-gradient {
-            background: var(--gradient);
+            background: var(--gradient); /* Updated to new theme */
         }
         
         .circle-decoration {
             position: absolute;
-            background: linear-gradient(45deg, var(--tertiary), var(--secondary));
+            background: linear-gradient(45deg, var(--tertiary), var(--secondary)); /* Updated to new theme */
             border-radius: 50%;
             opacity: 0.1;
             z-index: 1;
@@ -1056,7 +1069,7 @@
         /* Floating particles */
         .particle {
             position: absolute;
-            background: var(--secondary);
+            background: var(--secondary); /* Updated to new theme */
             border-radius: 50%;
             opacity: 0.6;
             animation: floatParticle 6s ease-in-out infinite;
@@ -1196,11 +1209,11 @@
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); /* Updated to new theme */
             }
             50% {
                 transform: scale(1.1);
-                box-shadow: 0 0 30px rgba(34, 211, 238, 0.8);
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.8); /* Updated to new theme */
             }
         }
         
@@ -1236,10 +1249,10 @@
         
         @keyframes glow {
             from {
-                box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+                box-shadow: 0 0 10px rgba(236, 72, 153, 0.3); /* Updated to new theme */
             }
             to {
-                box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.6); /* Updated to new theme */
             }
         }
         
@@ -1304,7 +1317,7 @@
         /* Enhanced text effects */
         .typing-effect {
             overflow: hidden;
-            border-right: 3px solid var(--secondary);
+            border-right: 3px solid var(--secondary); /* Updated to new theme */
             white-space: nowrap;
             animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
         }
@@ -1323,7 +1336,7 @@
                 border-color: transparent;
             }
             50% {
-                border-color: var(--secondary);
+                border-color: var(--secondary); /* Updated to new theme */
             }
         }
         
@@ -1637,6 +1650,21 @@
                 </div>
             </div>
 
+            <!-- --- NEW CERTIFICATE ADDED --- -->
+            <div class="certificate-card">
+                <div class="certificate-header">
+                    <div class="certificate-icon"><i class="fas fa-drone"></i></div>
+                    <h3>UAV Workshop</h3>
+                </div>
+                <div class="certificate-body">
+                    <p>Completed a hands-on workshop on Unmanned Aerial Vehicles (UAVs), covering design, assembly, and flight control systems.</p>
+                </div>
+                <div class="certificate-footer">
+                    <span class="certificate-issuer">IIIT Kottayam</span>
+                </div>
+            </div>
+            <!-- --- END NEW CERTIFICATE --- -->
+
             <div class="certificate-card">
                 <div class="certificate-header">
                     <div class="certificate-icon"><i class="fas fa-code"></i></div>
@@ -1696,7 +1724,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Niranjan K. All rights reserved. | 3rd Semester ECE Student</p>
+        <!-- Updated year to be dynamic -->
+        <p>&copy; <span id="year"></span> Niranjan K. All rights reserved. | 3rd Semester ECE Student</p>
         <div class="back-to-top" onclick="scrollToTop()">
             <i class="fas fa-arrow-up"></i>
         </div>
@@ -1704,6 +1733,9 @@
 
     <!-- JavaScript -->
     <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
         // Enhanced loading screen
         let progress = 0;
         const progressBar = document.getElementById('progress');
@@ -1877,16 +1909,8 @@
             enhancedObserver.observe(el);
         });
         
-        // Parallax effect for background elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.circle-decoration');
-            
-            parallaxElements.forEach((el, index) => {
-                const speed = 0.5 + (index * 0.2);
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
+        // NOTE: Removed the parallax scroll event listener for .circle-decoration
+        // The 'float' CSS animation handles their movement more smoothly.
         
         // Enhanced typing effect for hero section
         function typeWriter(element, text, speed = 100) {
@@ -1918,7 +1942,7 @@
                     position: absolute;
                     width: ${Math.random() * 100 + 50}px;
                     height: ${Math.random() * 100 + 50}px;
-                    background: linear-gradient(45deg, rgba(34, 211, 238, 0.1), rgba(14, 165, 233, 0.1));
+                    background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1)); /* Updated to new theme */
                     border-radius: 50%;
                     top: ${Math.random() * 100}%;
                     left: ${Math.random() * 100}%;
@@ -1954,7 +1978,7 @@
                     position: absolute;
                     width: 100px;
                     height: 100px;
-                    background: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, transparent 70%);
+                    background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%); /* Updated to new theme */
                     border-radius: 50%;
                     top: 50%;
                     left: 50%;
@@ -2058,7 +2082,7 @@
         document.querySelectorAll('.certificate-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
                 // Add glow effect
-                card.style.boxShadow = '0 25px 50px rgba(34, 211, 238, 0.4), 0 0 30px rgba(34, 211, 238, 0.2)';
+                card.style.boxShadow = '0 25px 50px rgba(139, 92, 246, 0.4), 0 0 30px rgba(236, 72, 153, 0.2)'; /* Updated to new theme */
             });
             
             card.addEventListener('mouseleave', () => {
@@ -2066,23 +2090,23 @@
             });
         });
         
-        // Add dynamic background color change based on scroll position
+        // Add dynamic background color change based on scroll position (Subtle)
         window.addEventListener('scroll', () => {
             const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-            const hue = 200 + (scrollPercent * 60); // Transition from blue to purple
+            // Subtle transition from blue (210) to purple (260)
+            const hue = 210 + (scrollPercent * 50); 
             
-            document.documentElement.style.setProperty('--dynamic-bg', `hsl(${hue}, 70%, 10%)`);
+            document.documentElement.style.setProperty('--primary', `hsl(${hue}, 39%, 10%)`);
         });
         
         // Add click animation to logo
         document.querySelector('.logo').addEventListener('click', () => {
             const symbol = document.querySelector('.logo .symbol');
             symbol.style.animation = 'none';
-            setTimeout(() => {
-                symbol.style.animation = 'rotate 2s ease-in-out';
-            }, 10);
+            void symbol.offsetWidth; // Trigger reflow
+            symbol.style.animation = 'rotate 2s ease-in-out';
         });
     </script>
 </body>
 </html>
-            
+
