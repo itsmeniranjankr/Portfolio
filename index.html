@@ -37,13 +37,23 @@
             justify-content: center;
         }
 
-        .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 2px solid rgba(212, 175, 55, 0.1);
+        .loader-logo-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-ring-outer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.1);
             border-top: 2px solid var(--gold-primary);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 2s linear infinite;
         }
 
         @keyframes spin {
@@ -116,7 +126,7 @@
         }
 
         /* Initial state for GSAP animations */
-        .reveal { opacity: 0; }
+        .reveal { opacity: 0; transform: translateY(30px); }
 
         /* AI Chat Widget Styles */
         #ai-chat-widget {
@@ -185,20 +195,54 @@
         .ai-message i { font-style: italic; color: var(--gold-secondary); }
         .ai-message ul { list-style-type: disc; padding-left: 1.2rem; margin: 0.5rem 0; }
         .ai-message li { margin-bottom: 0.25rem; }
+
+        /* Custom Logo Component */
+        .custom-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="selection:bg-amber-500/30 overflow-hidden">
 
     <!-- Loading Screen -->
     <div id="loader">
-        <div class="loader-ring"></div>
-        <div class="mt-6 gold-gradient-text font-bold tracking-[0.4em] text-sm animate-pulse">NIRANJAN K R</div>
+        <div class="loader-logo-container">
+            <div class="loader-ring-outer"></div>
+            <div class="custom-logo">
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 75V25L75 75V25" stroke="url(#logoGold)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="50" cy="50" r="45" stroke="url(#logoGold)" stroke-width="2" stroke-dasharray="10 10" />
+                    <defs>
+                        <linearGradient id="logoGold" x1="0" y1="0" x2="100" y2="100">
+                            <stop offset="0%" stop-color="#d4af37" />
+                            <stop offset="100%" stop-color="#b8860b" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <div class="mt-8 gold-gradient-text font-bold tracking-[0.5em] text-xs animate-pulse uppercase">Niranjan K R</div>
     </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-amber-900/20">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold tracking-tighter gold-gradient-text">NIRANJAN<span class="text-white">.</span></span>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="custom-logo scale-75 md:scale-90 group-hover:rotate-[360deg] transition-transform duration-700">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 75V25L75 75V25" stroke="url(#logoGoldNav)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="logoGoldNav" x1="0" y1="0" x2="100" y2="100">
+                                <stop offset="0%" stop-color="#d4af37" />
+                                <stop offset="100%" stop-color="#f3cf7a" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold tracking-tighter gold-gradient-text">NIRANJAN<span class="text-white">.</span></span>
+            </a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-amber-400 transition">About</a>
                 <a href="#skills" class="hover:text-amber-400 transition">Skills</a>
@@ -213,7 +257,7 @@
         <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-600/10 blur-[120px] rounded-full"></div>
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center z-10">
             <div class="order-2 md:order-1 text-center md:text-left" id="hero-content">
-                <h2 class="reveal text-amber-500 font-semibold mb-2 tracking-widest uppercase text-sm">Portfolio 2024</h2>
+                <h2 class="reveal text-amber-500 font-semibold mb-2 tracking-widest uppercase text-sm">Portfolio 2026</h2>
                 <h1 class="reveal text-5xl md:text-7xl font-bold mb-4 leading-tight">
                     <span class="gold-gradient-text">Niranjan K R</span>
                 </h1>
@@ -222,7 +266,7 @@
                     Specializing in hardware-software synergy with a <span class="text-amber-200">CSE Minor</span>.
                 </p>
                 <div class="reveal flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="mailto:nrkollikkara@gmail.com?subject=Portfolio%20Inquiry..." class="px-8 py-3 gold-button rounded-full font-bold shadow-lg">Get In Touch</a>
+                    <a href="#contact" class="px-8 py-3 gold-button rounded-full font-bold shadow-lg">Get In Touch</a>
                     <a href="Resume.pdf" download="Niranjan_KR_Resume.pdf" class="px-8 py-3 gold-outline-button rounded-full font-bold shadow-lg flex items-center gap-2">
                         <i class="fa-solid fa-download"></i> Download Resume
                     </a>
@@ -252,7 +296,7 @@
                 <div class="reveal glass p-8 rounded-3xl border-l-4 border-amber-500 relative education-card">
                     <div class="text-amber-500 text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
                     <h4 class="text-xl font-bold mb-2">CSE Minor</h4>
-                    <p class="text-slate-400">Bridging the gap between low-level electronics and high-level software architecture.</p>
+                    <p class="text-slate-400">Actively bridging the gap between hardware architecture and high-level software engineering.</p>
                 </div>
             </div>
         </div>
@@ -320,6 +364,7 @@
         <div class="max-w-6xl mx-auto">
             <h3 class="reveal text-3xl font-bold mb-12 text-center gold-gradient-text uppercase tracking-widest">Achievements</h3>
             <div class="grid md:grid-cols-3 gap-8" id="certs-grid">
+                <!-- Cert 1 -->
                 <div class="reveal cert-card glass rounded-3xl overflow-hidden gold-border group">
                     <div class="h-52 bg-slate-800 relative">
                         <img src="https://raw.githubusercontent.com/itsmeniranjankr/Portfolio/refs/heads/main/iit.jpg" alt="AI Certificate" class="w-full h-full object-cover opacity-60">
@@ -330,6 +375,7 @@
                         <p class="text-xs text-slate-500 mb-4 uppercase">IIT Kanpur</p>
                     </div>
                 </div>
+                <!-- Cert 2 -->
                 <div class="reveal cert-card glass rounded-3xl overflow-hidden gold-border group">
                     <div class="h-52 bg-slate-800 relative">
                         <img src="https://raw.githubusercontent.com/itsmeniranjankr/Portfolio/refs/heads/main/gtech.jpg" alt="C Certification" class="w-full h-full object-cover opacity-60">
@@ -340,6 +386,7 @@
                         <p class="text-xs text-slate-500 mb-4 uppercase">G-Tec Computer Education</p>
                     </div>
                 </div>
+                <!-- Cert 3 -->
                 <div class="reveal cert-card glass rounded-3xl overflow-hidden gold-border group">
                     <div class="h-52 bg-slate-800 relative">
                         <img src="https://raw.githubusercontent.com/itsmeniranjankr/Portfolio/refs/heads/main/uav.jpg" alt="UAV Workshop" class="w-full h-full object-cover opacity-60">
@@ -356,37 +403,69 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6">
-        <div class="reveal max-w-5xl mx-auto glass rounded-[3rem] p-8 md:p-16 gold-border relative" id="contact-container">
-            <div class="grid md:grid-cols-2 gap-16">
-                <div>
-                    <h3 class="reveal text-4xl font-bold mb-6 gold-gradient-text">Let's Collaborate</h3>
-                    <p class="reveal text-slate-400 mb-10 text-lg">Open to internships in Firmware Development & Hardware Design.</p>
-                    <div class="space-y-8">
-                        <div class="flex items-center space-x-6">
-                            <i class="fa-solid fa-envelope text-amber-500 text-xl"></i>
-                            <a href="mailto:nrkollikkara@gmail.com" class="text-lg hover:text-amber-400">nrkollikkara@gmail.com</a>
-                        </div>
-                        <div class="flex items-center space-x-6">
-                            <i class="fa-solid fa-phone text-amber-500 text-xl"></i>
-                            <a href="tel:7034636893" class="text-lg hover:text-amber-400">+91 7034636893</a>
-                        </div>
+        <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 gold-border relative" id="contact-container">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Branding & Embedded Contact -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="reveal mb-8">
+                        <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto md:mx-0">
+                            <path d="M25 75V25L75 75V25" stroke="url(#logoGoldContact)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="50" cy="50" r="45" stroke="url(#logoGoldContact)" stroke-width="2" stroke-dasharray="8 8" opacity="0.4" />
+                            <defs>
+                                <linearGradient id="logoGoldContact" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#d4af37" />
+                                    <stop offset="100%" stop-color="#b8860b" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="reveal text-4xl font-bold mb-4 gold-gradient-text uppercase tracking-tight">Let's Connect</h3>
+                    <p class="reveal text-slate-400 mb-8 max-w-sm">Reach out via the secure channels below for collaborations or professional inquiries.</p>
+                    
+                    <!-- Embedded Contact Icons (Removing text projections) -->
+                    <div class="reveal flex gap-6">
+                        <a href="mailto:nrkollikkara@gmail.com?subject=Portfolio%20Inquiry%20-%20Niranjan%20K%20R" class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-lg shadow-amber-500/10 group relative" title="Email Me">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </a>
+                        <a href="tel:7034636893" class="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-lg shadow-amber-500/10 group relative" title="Call Me">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Social Cards Grid -->
                 <div class="grid grid-cols-2 gap-4">
-                    <a href="https://linkedin.com/in/niranjan-k" target="_blank" class="p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500 text-center">
+                    <a href="https://linkedin.com/in/niranjan-k" target="_blank" class="reveal social-card p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500/50 transition-all group text-center">
                         <i class="fa-brands fa-linkedin text-3xl mb-4 text-amber-500"></i>
-                        <p class="text-sm font-bold">LinkedIn</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">LinkedIn</p>
+                        <p class="text-sm font-bold">Niranjan K</p>
                     </a>
-                    <a href="https://instagram.com/niranjan.exe" target="_blank" class="p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500 text-center">
+                    <a href="https://instagram.com/niranjan.exe" target="_blank" class="reveal social-card p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500/50 transition-all group text-center">
                         <i class="fa-brands fa-instagram text-3xl mb-4 text-amber-500"></i>
-                        <p class="text-sm font-bold">Instagram</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Instagram</p>
+                        <p class="text-sm font-bold">niranjan.exe</p>
                     </a>
+                    <a href="https://github.com/itsmeniranjankr" target="_blank" class="reveal social-card p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500/50 transition-all group text-center">
+                        <i class="fa-brands fa-github text-3xl mb-4 text-amber-500"></i>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">GitHub</p>
+                        <p class="text-sm font-bold">itsmeniranjankr</p>
+                    </a>
+                    <a href="Resume.pdf" download="Niranjan_KR_Resume.pdf" class="reveal social-card p-6 bg-white/5 rounded-3xl border border-white/10 hover:border-amber-500/50 transition-all group text-center flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-file-pdf text-3xl mb-4 text-amber-500"></i>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Resume</p>
+                        <p class="text-sm font-bold">Download PDF</p>
+                    </a>
+                    
+                    <!-- Identity Label -->
+                    <div class="col-span-2 mt-2 py-4 border-t border-white/5 text-center">
+                        <p class="text-[10px] text-slate-600 font-bold uppercase tracking-[0.3em] whitespace-nowrap">itsmeniranjankr (NIRANJAN K R)</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Chat Widget -->
+    <!-- AI Chat Widget (Goldfish) -->
     <div id="ai-chat-widget">
         <div id="chat-window" class="glass border gold-border">
             <div class="p-4 border-b gold-border flex justify-between items-center bg-black/40">
@@ -396,7 +475,7 @@
                 <button onclick="toggleChat()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-times"></i></button>
             </div>
             <div id="chat-messages">
-                <div class="message ai-message">Hi! I'm **Goldfish**, Niranjan's AI sidekick. Ask me anything about his projects, skills, or even just say hi!</div>
+                <div class="message ai-message">Hi! I'm **Goldfish**, Niranjan's AI assistant. How can I help you explore his ECE and CSE background today?</div>
             </div>
             <div class="p-4 border-t gold-border bg-black/20">
                 <div id="typing" class="typing-indicator mb-2">Goldfish is thinking...</div>
@@ -416,14 +495,14 @@
     <!-- Footer -->
     <footer class="py-12 border-t border-amber-900/20 text-center">
         <div class="gold-gradient-text font-bold text-lg mb-4">NIRANJAN K R</div>
-        <p class="text-slate-500 text-xs tracking-widest uppercase">© 2024 • All Rights Reserved</p>
+        <p class="text-slate-500 text-xs tracking-widest uppercase">© 2024 • itsmeniranjankr</p>
     </footer>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
         // AI Chat Logic
-        const apiKey = ""; // API Key injected at runtime
+        const apiKey = ""; // Runtime Injection
         const chatWindow = document.getElementById('chat-window');
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
@@ -431,123 +510,74 @@
 
         function toggleChat() {
             chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-            if (chatWindow.style.display === 'flex') {
-                userInput.focus();
-            }
+            if (chatWindow.style.display === 'flex') userInput.focus();
         }
 
-        // Improved Markdown formatter to eliminate stray asterisks
         function formatMarkdown(text) {
-            // 1. Convert bold: **text** -> <b>text</b>
             let html = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
-            
-            // 2. Convert italics: *text* -> <i>text</i>
             html = html.replace(/\*(.*?)\*/g, '<i>$1</i>');
-
-            // 3. Handle Lists and Newlines
             const lines = html.split('\n');
             let inList = false;
             let finalHtml = '';
-
             lines.forEach((line, index) => {
                 let trimmed = line.trim();
-                
-                // Check for list items (starting with * or -)
                 if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
-                    if (!inList) {
-                        finalHtml += '<ul class="my-2">';
-                        inList = true;
-                    }
+                    if (!inList) { finalHtml += '<ul class="my-2">'; inList = true; }
                     finalHtml += `<li>${trimmed.substring(2).trim()}</li>`;
                 } else {
-                    if (inList) {
-                        finalHtml += '</ul>';
-                        inList = false;
-                    }
-                    if (trimmed) {
-                        finalHtml += trimmed + (index < lines.length - 1 ? '<br>' : '');
-                    }
+                    if (inList) { finalHtml += '</ul>'; inList = false; }
+                    if (trimmed) finalHtml += trimmed + (index < lines.length - 1 ? '<br>' : '');
                 }
             });
-
             if (inList) finalHtml += '</ul>';
-            
-            // 4. Final safety sweep: Remove any single remaining asterisks that escaped
             return finalHtml.replace(/\*/g, '');
         }
 
         async function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
-
             appendMessage(text, 'user');
             userInput.value = '';
             typingIndicator.style.display = 'block';
 
             const systemPrompt = `You are "Goldfish", the personal AI assistant for Niranjan K R. 
-            Niranjan is a B.Tech ECE student at CUSAT (4th Sem) with a CSE minor.
-            Key info:
-            - Skills: VLSI, Embedded Systems, UAV Assembly, MASM, C++, Python.
-            - Certs: IIT Kanpur (AI), G-Tec (C), IIIT Kottayam (UAV).
-            Personality: Smart, witty, and professional. 
-            STRICT RULES:
-            - NEVER use raw '*' or '-' characters for bullet points in your output.
-            - If you want a list, just write sentences or use numbered points like 1, 2, 3.
-            - Keep responses clean and professional.
-            - Do not mention Markdown.`;
+            Niranjan is a B.Tech ECE student at CUSAT (4th Sem) with a CSE minor. 
+            Skills: Hardware (VLSI, Embedded, Microprocessors, UAV Assembly), Code (C++, Python, MASM, DSA), Tools (MATLAB, Simulink).
+            Certifications: IIT Kanpur (AI Training), G-Tec (C Programming), IIIT Kottayam (UAV Workshop).
+            Contact: Email and Phone are embedded in the profile's branding section. 
+            Personality: Smart, professional, witty.
+            RULES: No raw asterisks. Use bold text with <b> tags via your internal formatting. Keep it concise.`;
 
-            let retries = 0;
-            const maxRetries = 5;
-
-            async function callApi() {
-                try {
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: `System: ${systemPrompt}\nUser: ${text}` }] }]
-                        })
-                    });
-                    
-                    if (!response.ok) throw new Error('API Error');
-                    
-                    const data = await response.json();
-                    const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "I drifted away for a second. Can you repeat that?";
-                    typingIndicator.style.display = 'none';
-                    appendMessage(aiResponse, 'ai');
-                } catch (err) {
-                    if (retries < maxRetries) {
-                        retries++;
-                        setTimeout(callApi, Math.pow(2, retries) * 500);
-                    } else {
-                        typingIndicator.style.display = 'none';
-                        appendMessage("My connection to the sea is weak. Try emailing Niranjan!", 'ai');
-                    }
-                }
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: `System: ${systemPrompt}\nUser: ${text}` }] }] })
+                });
+                const data = await response.json();
+                const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Something went wrong at sea!";
+                typingIndicator.style.display = 'none';
+                appendMessage(aiResponse, 'ai');
+            } catch (err) {
+                typingIndicator.style.display = 'none';
+                appendMessage("Connection error. Reach out to Niranjan directly!", 'ai');
             }
-            callApi();
         }
 
         function appendMessage(text, sender) {
             const div = document.createElement('div');
             div.className = `message ${sender}-message shadow-sm`;
-            if (sender === 'ai') {
-                div.innerHTML = formatMarkdown(text);
-            } else {
-                div.textContent = text;
-            }
+            if (sender === 'ai') div.innerHTML = formatMarkdown(text);
+            else div.textContent = text;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
-        });
+        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
 
-        // Main Page Animations & Loader
+        // Animations
         window.addEventListener('load', () => {
             const tl = gsap.timeline();
-
             tl.to("#loader", {
                 opacity: 0,
                 duration: 0.8,
@@ -560,10 +590,20 @@
             .to("#hero-content .reveal", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.2")
             .to("#hero-image", { opacity: 1, scale: 1, rotate: 3, duration: 1, ease: "elastic.out(1, 0.5)" }, "-=0.6");
 
+            // Section reveals
             gsap.to("#about .reveal", { scrollTrigger: { trigger: "#about", start: "top 80%" }, opacity: 1, y: 0, duration: 0.8, stagger: 0.2 });
             gsap.to(".skill-card", { scrollTrigger: { trigger: "#skills-grid", start: "top 85%" }, opacity: 1, y: 0, duration: 0.6, stagger: 0.15 });
             gsap.to(".cert-card", { scrollTrigger: { trigger: "#certs-grid", start: "top 85%" }, opacity: 1, y: 0, duration: 0.7, stagger: 0.2 });
-            gsap.to("#contact-container", { scrollTrigger: { trigger: "#contact", start: "top 80%" }, opacity: 1, scale: 1, duration: 1 });
+            
+            // Unified contact reveal to ensure all children show up
+            gsap.to("#contact-container .reveal", { 
+                scrollTrigger: { trigger: "#contact", start: "top 80%" }, 
+                opacity: 1, 
+                y: 0, 
+                duration: 0.8, 
+                stagger: 0.1,
+                ease: "power2.out"
+            });
         });
     </script>
 </body>
