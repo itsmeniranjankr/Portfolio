@@ -245,7 +245,7 @@
       height: 50.5%;
       background: var(--bg-void);
       z-index: 1;
-      transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+      transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
     }
     .loader-curtain.top { top: 0; }
     .loader-curtain.bottom { bottom: 0; }
@@ -388,12 +388,12 @@
     #loader.complete .loader-title.top-slice {
       transform: translateY(-120%);
       opacity: 0;
-      transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
+      transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
     }
     #loader.complete .loader-title.bottom-slice {
       transform: translateY(120%);
       opacity: 0;
-      transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
+      transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
     }
 
     /* Sword Slash effect CSS */
@@ -1134,7 +1134,7 @@
 
     .hero-title {
       font-family: var(--font-tech);
-      font-size: clamp(48px, 6.5vw, 76px);
+      font-size: clamp(36px, 8vw, 76px);
       font-weight: 800;
       line-height: 0.95;
       letter-spacing: -0.01em;
@@ -1515,7 +1515,7 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 32px;
     }
 
@@ -1843,7 +1843,84 @@
       letter-spacing: 0.1em;
     }
 
+    /* ==========================================
+       RESPONSIVE BREAKPOINTS (DEVICE COMPATIBILITY)
+       ========================================== */
+    @media (max-width: 1024px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      /* Disable custom cursor on touch/tablet screens */
+      body, a, button, .btn, .nav-audio-btn, .nav-cta, .sidebar-dot {
+        cursor: auto !important;
+      }
+      #cursor-dot, #cursor-halo {
+        display: none !important;
+      }
+      /* Revert smooth scroll transform container */
+      #scroll-container {
+        position: relative !important;
+        transform: none !important;
+      }
+      #scroll-spacer {
+        display: none !important;
+      }
+    }
+
+    @media (pointer: coarse) {
+      body, a, button, .btn, .nav-audio-btn, .nav-cta, .sidebar-dot {
+        cursor: auto !important;
+      }
+      #cursor-dot, #cursor-halo {
+        display: none !important;
+      }
+      /* Revert smooth scroll transform container */
+      #scroll-container {
+        position: relative !important;
+        transform: none !important;
+      }
+      #scroll-spacer {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+      .hero-desc {
+        margin: 0 auto 32px;
+      }
+      .hero-specs {
+        justify-content: center;
+        gap: 32px;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-photo-wrap {
+        max-width: 320px;
+      }
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .contact-box {
+        padding: 40px 24px;
+      }
+    }
+
     @media (max-width: 768px) {
+      .edu-grid, .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .card-outline {
+        padding: 32px 24px;
+      }
       footer {
         flex-direction: column;
         gap: 16px;
@@ -1860,6 +1937,45 @@
       }
       .loader-seam {
         display: none;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .skill-card {
+        padding: 24px;
+      }
+      .socials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .social-card {
+        padding: 24px;
+        min-height: 120px;
+      }
+      .contact-phrase {
+        font-size: 28px;
+      }
+      /* Compact audio toggle on extra small screens */
+      .nav-audio-btn span {
+        display: none !important;
+      }
+      .nav-audio-btn {
+        padding: 8px 10px !important;
+        gap: 0 !important;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .contact-item {
+        padding: 12px 14px !important;
+        gap: 12px !important;
+      }
+      .contact-item-details div {
+        font-size: 10px !important;
       }
     }
   </style>
@@ -2901,12 +3017,12 @@
     
     // Networking Stars
     let nodes = [];
-    const maxNodes = 60; 
-    const connectionDist = 140;
+    let maxNodes = 60; 
+    let connectionDist = 140;
 
     // Drifting background blood cells
     let bloodCells = [];
-    const maxBloodCells = 22; // 20-25 cells
+    let maxBloodCells = 22; // 20-25 cells
 
     // Interactive blood splatter particles
     let bloodSplatters = [];
@@ -2914,6 +3030,11 @@
     function initCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      
+      const isMobile = window.innerWidth <= 768 || window.matchMedia('(pointer: coarse)').matches;
+      maxNodes = isMobile ? 25 : 60;
+      connectionDist = isMobile ? 90 : 140;
+      maxBloodCells = isMobile ? 10 : 22;
       
       // Initialize networking stars
       nodes = [];
@@ -3070,7 +3191,15 @@
     const scrollSpacer = document.getElementById('scroll-spacer');
     const scrollEase = 0.085; 
 
+    function isMobileOrTouch() {
+      return window.innerWidth <= 1024 || window.matchMedia('(pointer: coarse)').matches;
+    }
+
     function resizeSpacer() {
+      if (isMobileOrTouch()) {
+        if (scrollSpacer) scrollSpacer.style.height = '0px';
+        return;
+      }
       if (scrollContainer && scrollSpacer) {
         scrollSpacer.style.height = scrollContainer.getBoundingClientRect().height + 'px';
       }
@@ -3082,9 +3211,21 @@
 
     window.addEventListener('scroll', () => {
       targetY = window.scrollY;
+      if (isMobileOrTouch()) {
+        currentY = window.scrollY;
+      }
     });
 
     function smoothScroll() {
+      if (isMobileOrTouch()) {
+        currentY = window.scrollY;
+        if (scrollContainer) {
+          scrollContainer.style.transform = '';
+        }
+        updateActiveSection();
+        requestAnimationFrame(smoothScroll);
+        return;
+      }
       currentY += (targetY - currentY) * scrollEase;
       
       // Translate vertically on scroll
@@ -3195,13 +3336,8 @@
       const sequence = [
         { word: '▲_SYSTEM_▼', status: 'BOOT: CONNECTING_SYSTEM_INTEGRITY...' },
         { word: '⚙_CUSAT_⚙', status: 'BOOT: COMPILING_ECE_CUSAT_CORE...' },
-        { word: '♥_☠_⚙', status: 'BOOT: INITIALIZING_THEMATIC_ENGINES...' },
-        { word: '✖_SOLIDWORKS_✖', status: 'BOOT: SHADING_CAD_SOLIDWORKS_MODELS...' },
         { word: '✈_UAV_PX4_✈', status: 'BOOT: LINKING_UAV_AUTOPILOT_PX4...' },
-        { word: '▲_✖_◆', status: 'BOOT: LOADING_SYMBOLIC_DECIMATION...' },
-        { word: '☠_STEALTH_☠', status: 'BOOT: STAGING_STEALTH_IOT_MESH...' },
         { word: '✦_CAD_DESIGN_✦', status: 'BOOT: PARSING_CADABLE_CERTIFICATE...' },
-        { word: '⚙_ROBOTICS_⚙', status: 'BOOT: STABILIZING_ROBOT_KINEMATICS...' },
         { word: '✚_INTERN_✚', status: 'BOOT: CACHING_ENGINEERING_INTERNSHIP...' },
         { word: 'NIRAVERSE', status: 'BOOT: ACCESS_GRANTED // NIRAVERSE_ONLINE' }
       ];
@@ -3253,7 +3389,7 @@
       // Async timeline driver
       async function runSequence() {
         // Initial delay
-        await new Promise(resolve => setTimeout(resolve, 300));
+        await new Promise(resolve => setTimeout(resolve, 150));
 
         // Start CRT hum if user enabled audio before or it's unblocked
         if (audioEnabled && soundEngine) {
@@ -3277,9 +3413,9 @@
           }
 
           const isFinal = (i === sequence.length - 1);
-          // Slow down shuffles and holds so each word is readable and visually distinct
-          const scrambleDuration = isFinal ? 1100 : 380;
-          const holdDuration = isFinal ? 1000 : 320;
+          // Snappy shuffles and holds so the page loads quickly and dynamically
+          const scrambleDuration = isFinal ? 280 : 120;
+          const holdDuration = isFinal ? 350 : 50;
 
           await scrambler.setText(item.word, scrambleDuration, isFinal);
 
@@ -3325,7 +3461,7 @@
           if (loader) loader.style.display = 'none';
           document.getElementById('main').classList.add('visible');
           initMainPageGlitches();
-        }, 1200); // matches curtain CSS slide-out
+        }, 800); // matches curtain CSS slide-out
       }
 
       runSequence();
